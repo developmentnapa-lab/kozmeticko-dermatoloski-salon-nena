@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kozmetičko-Dermatološki Salon Nena — Zrenjanin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#FAFCFB;
+  --off:#F4F7F5;
+  --navy:#1A2332;
+  --navy-m:#263347;
+  --sage:#7A9E8E;
+  --sage-l:#B8D4C8;
+  --sage-d:#4E7A6A;
+  --sage-pale:#EBF2EE;
+  --warm:#C4A882;
+  --mid:#4A5568;
+  --soft:#8A9BB0;
+  --border:#D8E4DE;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--navy);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* CURSOR */
+@media(pointer:fine){
+  *{cursor:none}
+  #cur{position:fixed;width:9px;height:9px;background:var(--sage);border-radius:50%;pointer-events:none;z-index:9999;transition:transform .15s}
+  #cur-r{position:fixed;width:32px;height:32px;border:1px solid var(--sage);border-radius:50%;pointer-events:none;z-index:9998;opacity:.5}
+}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:22px 56px;transition:all .4s}
+nav.sc{background:rgba(250,252,251,.97);backdrop-filter:blur(16px);padding:14px 56px;border-bottom:1px solid var(--border)}
+.nl{font-family:'Playfair Display',serif;font-size:17px;font-weight:500;color:var(--ivory);text-decoration:none;z-index:201;position:relative;transition:color .3s;line-height:1.3;max-width:260px}
+.nl em{font-style:italic;color:var(--sage-l);display:block;font-size:12px;letter-spacing:.05em}
+nav.sc .nl{color:var(--navy)}
+nav.sc .nl em{color:var(--sage)}
+.nlinks{display:flex;gap:32px;list-style:none}
+.nlinks a{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(250,252,251,.65);text-decoration:none;position:relative;transition:color .3s;font-weight:400}
+.nlinks a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--sage-l);transition:width .3s}
+.nlinks a:hover,.nlinks a.ac{color:var(--ivory)}
+.nlinks a:hover::after,.nlinks a.ac::after{width:100%}
+nav.sc .nlinks a{color:var(--mid)}
+nav.sc .nlinks a:hover,nav.sc .nlinks a.ac{color:var(--navy)}
+.ncta{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#fff !important;background:var(--sage);padding:10px 22px;text-decoration:none;transition:background .3s;white-space:nowrap}
+.ncta:hover{background:var(--sage-d) !important;color:#fff !important}
+.hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;z-index:201}
+.hbg span{display:block;width:22px;height:1.5px;background:var(--ivory);transition:all .35s}
+nav.sc .hbg span{background:var(--navy)}
+.hbg.op span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hbg.op span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hbg.op span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* MOBILE MENU */
+.mob{display:none;position:fixed;inset:0;background:var(--navy);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mob.op{display:flex}
+.mob a{font-family:'Playfair Display',serif;font-size:34px;font-weight:400;color:var(--ivory);text-decoration:none;transition:color .3s}
+.mob a:hover{color:var(--sage-l)}
+.mob .mc{font-family:'DM Sans',sans-serif !important;font-size:11px !important;letter-spacing:.2em;text-transform:uppercase;background:var(--sage) !important;color:#fff !important;padding:13px 32px;margin-top:10px;text-decoration:none}
+
+/* PAGES */
+.page{display:none}.page.active{display:block}
+.pt{position:fixed;inset:0;background:var(--sage-d);z-index:1000;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.77,0,.18,1);pointer-events:none}
+.pt.active{transform:scaleX(1)}
+
+/* BUTTONS */
+.btn-s{display:inline-block;background:var(--sage);color:#fff !important;padding:13px 32px;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:none;transition:all .3s}
+.btn-s:hover{background:var(--sage-d);transform:translateY(-2px);color:#fff !important}
+.btn-n{display:inline-block;background:var(--navy);color:#fff !important;padding:13px 32px;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border:none;transition:all .3s}
+.btn-n:hover{background:var(--navy-m,#263347);color:#fff !important}
+.btn-ol{display:inline-flex;align-items:center;gap:10px;color:var(--sage-l) !important;text-decoration:none;font-size:10px;letter-spacing:.2em;text-transform:uppercase;transition:gap .3s}
+.btn-ol::after{content:'→'}.btn-ol:hover{gap:18px}
+.btn-or{display:inline-flex;align-items:center;gap:10px;color:var(--sage) !important;text-decoration:none;font-size:10px;letter-spacing:.18em;text-transform:uppercase;transition:gap .3s}
+.btn-or::after{content:'→'}.btn-or:hover{gap:18px}
+
+/* PAGED NAV fix */
+body.pgl nav{background:rgba(250,252,251,.97);backdrop-filter:blur(16px);padding:14px 56px;border-bottom:1px solid var(--border)}
+body.pgl .nl{color:var(--navy)}
+body.pgl .nl em{color:var(--sage)}
+body.pgl .nlinks a{color:var(--mid)}
+body.pgl .hbg span{background:var(--navy)}
+@media(max-width:900px){body.pgl nav{padding:13px 20px}}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.rv-l{opacity:0;transform:translateX(-28px);transition:opacity .65s ease,transform .65s ease}
+.rv-l.in{opacity:1;transform:none}
+.rv-r{opacity:0;transform:translateX(28px);transition:opacity .65s ease,transform .65s ease}
+.rv-r.in{opacity:1;transform:none}
+
+/* FOOTER */
+footer{background:var(--navy);padding:64px 56px 32px}
+.ft{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(122,158,142,.2)}
+.fb-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;color:var(--ivory);margin-bottom:5px}
+.fb-name em{font-style:italic;color:var(--sage-l)}
+.fb-sub{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin-bottom:14px}
+.fb p{font-size:13px;line-height:1.8;color:var(--soft);max-width:220px}
+.fc h4{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage-l);margin-bottom:16px;font-weight:500}
+.fc ul{list-style:none}.fc li{margin-bottom:8px}
+.fc a{font-size:13px;color:var(--soft);text-decoration:none;transition:color .3s}
+.fc a:hover{color:var(--ivory)}
+.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:26px;font-size:11px;color:rgba(138,155,176,.4);flex-wrap:wrap;gap:6px}
+
+/* ════════════════════
+   HOME PAGE
+════════════════════ */
+/* SPLIT HERO — left text, right visual panel */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative}
+.hero-left{background:var(--navy);display:flex;flex-direction:column;justify-content:center;padding:140px 64px 80px 56px;position:relative;overflow:hidden}
+.hero-left-noise{position:absolute;inset:0;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
+.hero-left-line{position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,transparent,var(--sage),transparent)}
+.hero-right{background:var(--sage-d);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-right-img{position:absolute;inset:0;background:linear-gradient(145deg,var(--sage-d) 0%,var(--navy) 70%);display:flex;align-items:center;justify-content:center}
+.hero-right-svg{width:55%;height:55%;opacity:.12}
+.hero-right-overlay{position:relative;z-index:2;padding:40px 48px;background:linear-gradient(0deg,rgba(26,35,50,.9) 0%,transparent 100%)}
+.hero-tag{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage-l);margin-bottom:28px;animation:fu .7s ease both}
+.hero-tag::before{content:'';width:24px;height:1px;background:var(--sage-l)}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(38px,5vw,72px);font-weight:400;line-height:1.1;color:var(--ivory);animation:fu .7s .1s ease both}
+.hero-h1 em{font-style:italic;color:var(--sage-l)}
+.hero-sub{margin-top:22px;font-size:15px;line-height:1.85;color:rgba(250,252,251,.55);max-width:420px;animation:fu .7s .2s ease both}
+.hero-btns{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;animation:fu .7s .3s ease both}
+.hero-right-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(122,158,142,.2)}
+.hrs{background:rgba(26,35,50,.6);padding:22px 24px;backdrop-filter:blur(4px)}
+.hrs-n{font-family:'Playfair Display',serif;font-size:36px;font-style:italic;color:var(--ivory);line-height:1}
+.hrs-l{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-l);margin-top:5px}
+
+/* SCROLLING TICKER */
+.ticker{background:var(--sage);overflow:hidden;white-space:nowrap;padding:14px 0;border-top:1px solid var(--sage-d)}
+.ticker-inner{display:inline-flex;gap:0;animation:tick 22s linear infinite}
+.ticker-item{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.85);padding:0 40px;display:inline-flex;align-items:center;gap:16px}
+.ticker-item::after{content:'✦';opacity:.6;font-size:8px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* PODOLOGY SECTION — full width asymmetric */
+.podo{display:grid;grid-template-columns:2fr 3fr;min-height:600px}
+.podo-left{background:var(--sage-d);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:80px 56px}
+.podo-left-watermark{position:absolute;bottom:-30px;left:-20px;font-family:'Playfair Display',serif;font-size:180px;font-weight:700;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;font-style:italic}
+.podo-left h2{font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,52px);font-weight:400;color:var(--ivory);line-height:1.2;position:relative}
+.podo-left h2 em{font-style:italic;color:var(--sage-l)}
+.podo-left p{font-size:14px;line-height:1.85;color:rgba(250,252,251,.6);margin-top:20px;max-width:320px;position:relative}
+.podo-left-badge{margin-top:32px;position:relative;display:inline-block;background:rgba(184,212,200,.12);border:1px solid rgba(184,212,200,.25);padding:14px 20px;font-size:11px;line-height:1.6;color:rgba(250,252,251,.75)}
+.podo-left-badge strong{display:block;color:var(--sage-l);letter-spacing:.1em;text-transform:uppercase;font-size:10px;margin-bottom:3px}
+.podo-right{background:var(--ivory);padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
+.podo-right h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--navy);margin-bottom:28px}
+.podo-right h3 em{font-style:italic;color:var(--sage-d)}
+.podo-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.podo-list li{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--mid)}
+.podo-list li:nth-last-child(-n+2){border-bottom:none}
+.podo-dot{width:6px;height:6px;background:var(--sage);border-radius:50%;margin-top:7px;flex-shrink:0}
+.podo-right-footer{margin-top:36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-top:28px;border-top:1px solid var(--border)}
+.podo-years{font-family:'Playfair Display',serif;font-size:48px;font-style:italic;color:var(--sage);line-height:1}
+.podo-years-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin-top:4px}
+
+/* WHY US — 4 column strip */
+.why{background:var(--navy);padding:72px 56px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background-color:rgba(122,158,142,.15)}
+.why-card{background:var(--navy);padding:44px 32px;position:relative;border-top:2px solid transparent;transition:border-color .3s}
+.why-card:hover{border-top-color:var(--sage)}
+.why-num{font-family:'Playfair Display',serif;font-size:56px;font-style:italic;color:rgba(122,158,142,.15);position:absolute;top:18px;right:20px;line-height:1}
+.why-icon{width:44px;height:44px;border:1px solid rgba(122,158,142,.3);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.why-icon svg{width:18px;height:18px}
+.why-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--ivory);margin-bottom:10px}
+.why-text{font-size:13px;line-height:1.8;color:var(--soft)}
+
+/* TESTIMONIALS — horizontal cards on colored bg */
+.testi{background:var(--sage-pale);padding:80px 0 80px 56px;overflow:hidden}
+.testi-header{display:flex;align-items:baseline;justify-content:space-between;padding-right:56px;margin-bottom:40px}
+.testi-header h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,48px);font-weight:400;color:var(--navy)}
+.testi-header h2 em{font-style:italic;color:var(--sage-d)}
+.testi-scroll{display:flex;gap:20px;overflow-x:auto;padding-right:56px;padding-bottom:16px;scrollbar-width:thin;scrollbar-color:var(--sage-l) transparent}
+.testi-scroll::-webkit-scrollbar{height:3px}
+.testi-scroll::-webkit-scrollbar-thumb{background:var(--sage-l)}
+.tc{background:var(--ivory);padding:36px 32px;min-width:320px;max-width:360px;flex-shrink:0;border-top:2px solid var(--sage);transition:transform .3s}
+.tc:hover{transform:translateY(-4px)}
+.stars{color:var(--sage);font-size:12px;letter-spacing:3px;margin-bottom:14px}
+.tt{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:var(--navy);line-height:1.7;margin-bottom:20px}
+.ta{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
+
+/* HOME CTA STRIP */
+.home-cta{display:grid;grid-template-columns:1fr 1fr;min-height:280px}
+.hcta-l{background:var(--sage);padding:64px 56px;display:flex;flex-direction:column;justify-content:center}
+.hcta-l h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,40px);font-weight:400;color:var(--ivory);line-height:1.2;margin-bottom:20px}
+.hcta-l h2 em{font-style:italic}
+.hcta-r{background:var(--navy);padding:64px 56px;display:flex;flex-direction:column;justify-content:center;gap:20px}
+.hcta-r .info-row{display:flex;align-items:flex-start;gap:14px}
+.hcta-r .info-row svg{width:16px;height:16px;flex-shrink:0;margin-top:3px;opacity:.6}
+.hcta-r .info-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-l);margin-bottom:3px}
+.hcta-r .info-val{font-size:14px;color:rgba(250,252,251,.75)}
+.hcta-r .info-val a{color:inherit;text-decoration:none;transition:color .3s}
+.hcta-r .info-val a:hover{color:var(--sage-l)}
+
+/* ════════════════════
+   ABOUT PAGE
+════════════════════ */
+/* Full-width header strip with left-aligned big text */
+.about-hero{background:var(--navy);padding:140px 56px 80px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;position:relative;overflow:hidden}
+.about-hero-watermark{position:absolute;right:-40px;bottom:-20px;font-family:'Playfair Display',serif;font-size:clamp(120px,22vw,300px);font-weight:700;color:rgba(255,255,255,.025);font-style:italic;line-height:1;pointer-events:none}
+.about-hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,88px);font-weight:400;color:var(--ivory);line-height:1.0;position:relative}
+.about-hero h1 em{font-style:italic;color:var(--sage-l)}
+.about-hero-right{max-width:380px;position:relative;flex-shrink:0}
+.about-hero-right p{font-size:15px;line-height:1.85;color:rgba(250,252,251,.55);margin-bottom:20px}
+
+/* STORY — magazine 3-col layout */
+.about-story{padding:80px 56px;display:grid;grid-template-columns:1fr 2px 2fr;gap:48px;align-items:start}
+.about-story-left{}
+.about-story-divider{background:var(--border);align-self:stretch}
+.about-story-right{}
+.about-story h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:24px}
+.about-story h2 em{font-style:italic;color:var(--sage-d)}
+.about-story p{font-size:15px;line-height:1.9;color:var(--mid);margin-bottom:18px}
+.about-pull{font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:var(--sage-d);line-height:1.55;border-left:3px solid var(--sage);padding-left:24px;margin:28px 0}
+.about-tag-list{display:flex;flex-direction:column;gap:0;margin-top:32px}
+.about-tag{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--mid)}
+.about-tag-dot{width:6px;height:6px;background:var(--sage);border-radius:50%;flex-shrink:0}
+.about-tag:first-child{border-top:1px solid var(--border)}
+
+/* NUMBERS — full width dark strip */
+.about-nums{background:var(--navy);display:grid;grid-template-columns:repeat(4,1fr)}
+.an{padding:48px 36px;border-right:1px solid rgba(122,158,142,.15);text-align:center;transition:background .3s}
+.an:last-child{border-right:none}
+.an:hover{background:rgba(122,158,142,.06)}
+.anv{font-family:'Playfair Display',serif;font-size:52px;font-style:italic;color:var(--sage-l);line-height:1}
+.anl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin-top:8px}
+
+/* TEAM — horizontal cards */
+.about-team{padding:80px 56px;background:var(--off)}
+.about-team-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:44px;flex-wrap:wrap;gap:16px}
+.about-team-header h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,42px);font-weight:400;color:var(--navy)}
+.about-team-header h2 em{font-style:italic;color:var(--sage-d)}
+.about-team-header p{font-size:14px;color:var(--soft);max-width:360px}
+.tmg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tmc{}
+.tmp{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,var(--tc1),var(--tc2));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:72px;font-style:italic;color:rgba(255,255,255,.25);overflow:hidden;transition:transform .5s}
+.tmc:hover .tmp{transform:scale(1.04)}
+.tmi{padding:18px 0 0;border-top:2px solid var(--border);margin-top:0}
+.tmn{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);margin-bottom:3px}
+.tmr{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-bottom:9px}
+.tmb{font-size:13px;line-height:1.7;color:var(--mid)}
+
+/* ════════════════════
+   SERVICES PAGE
+════════════════════ */
+/* BIG INTRO SPLIT */
+.serv-intro{display:grid;grid-template-columns:1fr 1fr;min-height:500px}
+.serv-intro-l{background:var(--sage-d);padding:100px 56px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.serv-intro-l::after{content:'PODOLOGIJA';position:absolute;bottom:-20px;left:-10px;font-family:'Playfair Display',serif;font-size:clamp(60px,10vw,130px);font-weight:700;color:rgba(255,255,255,.05);white-space:nowrap;letter-spacing:.05em;line-height:1}
+.serv-intro-l h1{font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,64px);font-weight:400;color:var(--ivory);line-height:1.1;position:relative}
+.serv-intro-l h1 em{font-style:italic;color:var(--sage-l)}
+.serv-intro-l p{font-size:15px;line-height:1.85;color:rgba(250,252,251,.6);margin-top:20px;max-width:400px;position:relative}
+.serv-intro-r{background:var(--ivory);padding:80px 56px;display:flex;flex-direction:column;justify-content:center}
+.serv-intro-r h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:10px}
+.serv-intro-r h3 em{font-style:italic;color:var(--sage-d)}
+.serv-intro-r > p{font-size:14px;color:var(--mid);line-height:1.8;margin-bottom:28px}
+.excl-box{background:var(--navy);padding:24px 28px;display:flex;gap:16px;align-items:flex-start}
+.excl-num{font-family:'Playfair Display',serif;font-size:44px;font-style:italic;color:var(--sage-l);line-height:1;flex-shrink:0}
+.excl-text .et1{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-l);margin-bottom:4px}
+.excl-text .et2{font-size:13px;line-height:1.7;color:rgba(250,252,251,.65)}
+
+/* PODO LIST GRID */
+.podo-grid{background:var(--sage-pale);padding:64px 56px}
+.podo-grid h3{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);margin-bottom:32px}
+.podo-grid h3 em{font-style:italic;color:var(--sage-d)}
+.podo-items{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.pi{background:var(--ivory);padding:28px 24px;transition:background .3s}
+.pi:hover{background:var(--sage-pale)}
+.pi-icon{font-size:22px;margin-bottom:12px}
+.pi-name{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:6px}
+.pi-desc{font-size:12px;line-height:1.7;color:var(--soft)}
+
+/* OTHER SERVICES */
+.other-serv{padding:0 56px 72px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.os{background:var(--ivory);padding:36px 28px 32px;position:relative;overflow:hidden;border-top:2px solid transparent;transition:border-color .4s,background .3s}
+.os:hover{border-top-color:var(--sage);background:var(--off)}
+.os-img{width:100%;height:140px;margin-bottom:20px;overflow:hidden;position:relative}
+.os-img-ph{width:100%;height:100%;background:linear-gradient(135deg,var(--ci1,var(--sage-pale)),var(--ci2,var(--sage-l)));display:flex;align-items:center;justify-content:center;transition:transform .5s}
+.os:hover .os-img-ph{transform:scale(1.06)}
+.os-img-ph svg{width:38px;height:38px;opacity:.4}
+.os-name{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:10px}
+.os-desc{font-size:13px;line-height:1.8;color:var(--mid);margin-bottom:16px}
+.os-list{list-style:none}
+.os-list li{font-size:12px;color:var(--soft);padding:6px 0;border-bottom:1px solid var(--border);display:flex;gap:7px;align-items:center}
+.os-list li::before{content:'';width:4px;height:4px;background:var(--sage);border-radius:50%;flex-shrink:0}
+.os-list li:last-child{border-bottom:none}
+.os-link{margin-top:18px;display:flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);transition:gap .3s}
+.os-link::after{content:'→'}.os:hover .os-link{gap:14px}
+
+/* ════════════════════
+   CERTIFICATES PAGE
+════════════════════ */
+/* HEADER — stacked left text, right accent column */
+.certs-hero{display:grid;grid-template-columns:3fr 1fr;background:var(--navy);min-height:340px}
+.certs-hero-left{padding:140px 56px 80px;position:relative;overflow:hidden}
+.certs-hero-left::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,transparent,var(--sage-l),transparent)}
+.certs-hero-left .tag{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage-l);margin-bottom:16px;display:block}
+.certs-hero-left h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,66px);font-weight:400;color:var(--ivory);line-height:1.1}
+.certs-hero-left h1 em{font-style:italic;color:var(--sage-l)}
+.certs-hero-left p{margin-top:16px;font-size:15px;line-height:1.8;color:rgba(250,252,251,.5);max-width:480px}
+.certs-hero-right{background:var(--sage-d);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:40px 24px}
+.certs-hero-right .big{font-family:'Playfair Display',serif;font-size:64px;font-style:italic;color:var(--ivory);line-height:1}
+.certs-hero-right .lbl{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(250,252,251,.6)}
+
+/* CERT MASONRY */
+.cert-grid{padding:64px 56px;columns:3;column-gap:20px}
+.cert-card{break-inside:avoid;margin-bottom:20px;background:var(--ivory);border:1px solid var(--border);overflow:hidden;transition:all .4s;position:relative}
+.cert-card:hover{border-color:var(--sage-l);box-shadow:0 12px 32px rgba(122,158,142,.1);transform:translateY(-3px)}
+.cert-ph{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--ci1,var(--sage-pale)),var(--ci2,var(--off)));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;transition:transform .5s}
+.cert-card:hover .cert-ph{transform:scale(1.03)}
+.cert-ph svg{width:44px;height:44px;opacity:.3}
+.cert-year-tag{position:absolute;top:12px;left:12px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-d);background:rgba(255,255,255,.9);padding:4px 10px;border:1px solid var(--sage-l)}
+.cert-upload-btn{position:absolute;bottom:12px;right:12px;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-d);background:rgba(255,255,255,.9);border:1px solid var(--sage-l);padding:5px 12px;transition:all .3s}
+.cert-card:hover .cert-upload-btn{background:var(--sage);color:#fff;border-color:var(--sage)}
+.cert-info{padding:18px 20px 20px}
+.cert-name{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);margin-bottom:4px}
+.cert-issuer{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin-bottom:8px}
+.cert-desc{font-size:12px;line-height:1.7;color:var(--soft)}
+
+/* TIMELINE — horizontal scroll */
+.timeline-wrap{background:var(--sage-pale);padding:64px 56px;overflow:hidden}
+.timeline-wrap h3{font-family:'Playfair Display',serif;font-size:32px;font-weight:400;color:var(--navy);margin-bottom:44px}
+.timeline-wrap h3 em{font-style:italic;color:var(--sage-d)}
+.timeline-h{display:flex;gap:0;position:relative}
+.timeline-h::before{content:'';position:absolute;top:18px;left:0;right:0;height:1px;background:var(--sage-l)}
+.tl-step{flex:1;padding-top:44px;position:relative;padding-right:20px}
+.tl-step::before{content:'';position:absolute;top:12px;left:0;width:14px;height:14px;background:var(--sage);border:3px solid var(--ivory);border-radius:50%;z-index:1;box-shadow:0 0 0 3px var(--sage-l)}
+.tl-year{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--sage-d);margin-bottom:7px}
+.tl-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);margin-bottom:7px}
+.tl-body{font-size:12px;line-height:1.7;color:var(--mid)}
+
+/* ════════════════════
+   CONTACT PAGE
+════════════════════ */
+/* CONTACT — full page map on right */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 60px)}
+.contact-left{padding:100px 56px;overflow-y:auto}
+.contact-right{position:relative}
+.contact-right iframe{width:100%;height:100%;border:0;display:block;min-height:500px}
+.contact-right-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,var(--navy) 0%,transparent 100%);height:160px;pointer-events:none}
+.contact-right-btn{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);background:var(--navy);color:var(--sage-l) !important;font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:10px 20px;text-decoration:none;white-space:nowrap;transition:background .3s;border:1px solid rgba(122,158,142,.3)}
+.contact-right-btn:hover{background:var(--sage);color:#fff !important}
+.cl-tag{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-bottom:18px;display:block}
+.contact-left h1{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,48px);font-weight:400;color:var(--navy);margin-bottom:10px}
+.contact-left h1 em{font-style:italic;color:var(--sage-d)}
+.contact-left > p{font-size:15px;line-height:1.85;color:var(--mid);margin-bottom:40px}
+.cdt{display:flex;align-items:flex-start;gap:16px;margin-bottom:22px}
+.cic{width:38px;height:38px;flex-shrink:0;background:var(--sage-pale);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+.cic svg{width:15px;height:15px}
+.clbl{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--sage-d);margin-bottom:3px}
+.cval{font-size:14px;color:var(--navy)}
+.cval a{color:inherit;text-decoration:none;transition:color .3s}
+.cval a:hover{color:var(--sage-d)}
+.chrs{padding:24px 28px;background:var(--sage-pale);border-left:2px solid var(--sage);margin:32px 0}
+.chrs h4{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--sage-d);margin-bottom:14px}
+.hr{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--mid)}
+.hr:last-child{border-bottom:none}
+.hop{color:var(--sage-d);font-weight:500}
+
+/* CONTACT FORM */
+.contact-form-wrap{background:var(--ivory)}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--mid);margin-bottom:7px;font-weight:500}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--off);border:1px solid var(--border);padding:11px 15px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;color:var(--navy);outline:none;transition:border-color .3s;appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--sage);background:var(--ivory)}
+.fg textarea{resize:vertical;min-height:96px}
+.fsub{width:100%;background:var(--navy);color:#fff;border:none;padding:14px;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;transition:background .3s;margin-top:4px}
+.fsub:hover{background:var(--sage);color:#fff}
+.fsuc{display:none;text-align:center;padding:48px 28px;background:var(--sage-pale);border:1px solid var(--sage-l)}
+.fsuc h3{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);margin-bottom:10px;font-style:italic}
+.fsuc p{font-size:14px;color:var(--mid)}
+.contact-divider{height:1px;background:var(--border);margin:36px 0}
+
+/* ══════════════════
+   RESPONSIVE
+══════════════════ */
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .podo{grid-template-columns:1fr}
+  .podo-left{min-height:auto;padding:60px 28px}
+  .podo-list{grid-template-columns:1fr}
+  .podo-list li:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
+  .podo-list li:last-child{border-bottom:none}
+  .why{grid-template-columns:1fr 1fr}
+  .cert-grid{columns:2}
+  .contact-wrap{grid-template-columns:1fr}
+  .contact-right{min-height:320px}
+  .certs-hero{grid-template-columns:1fr}
+  .certs-hero-right{flex-direction:row;justify-content:flex-start;padding:24px 56px;gap:20px}
+  .serv-intro{grid-template-columns:1fr}
+  .tmg{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  nav{padding:16px 20px}
+  nav.sc,body.pgl nav{padding:12px 20px}
+  .nlinks,.ncta{display:none}
+  .hbg{display:flex}
+  .hero-left{padding:110px 24px 60px}
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .about-hero{padding:110px 24px 56px;flex-direction:column;gap:28px}
+  .about-story{grid-template-columns:1fr;padding:56px 24px;gap:32px}
+  .about-story-divider{display:none}
+  .about-nums{grid-template-columns:1fr 1fr}
+  .an{border-bottom:1px solid rgba(122,158,142,.15)}
+  .about-team{padding:56px 24px}
+  .tmg{grid-template-columns:1fr;max-width:360px}
+  .serv-intro{grid-template-columns:1fr}
+  .serv-intro-l{padding:60px 24px}
+  .serv-intro-r{padding:48px 24px}
+  .podo-grid{padding:48px 24px}
+  .podo-items{grid-template-columns:1fr 1fr}
+  .other-serv{padding:0 24px 56px;grid-template-columns:1fr}
+  .certs-hero-left{padding:110px 24px 56px}
+  .certs-hero-right{padding:24px}
+  .cert-grid{columns:1;padding:48px 24px}
+  .timeline-wrap{padding:48px 24px}
+  .timeline-h{flex-direction:column}
+  .timeline-h::before{top:0;bottom:0;left:6px;right:auto;width:1px;height:auto}
+  .tl-step{padding-top:0;padding-left:28px;padding-bottom:28px}
+  .tl-step::before{top:3px;left:0}
+  .contact-wrap{grid-template-columns:1fr}
+  .contact-left{padding:80px 24px 48px}
+  .contact-right{min-height:300px}
+  .home-cta{grid-template-columns:1fr}
+  .testi{padding:60px 0 60px 24px}
+  .testi-scroll{padding-right:24px}
+  .why{grid-template-columns:1fr}
+  footer{padding:52px 24px 28px}
+  .ft{grid-template-columns:1fr;gap:28px}
+  .fbot{flex-direction:column;text-align:center}
+  .ticker{display:none}
+}
+@media(max-width:520px){
+  .about-nums{grid-template-columns:1fr 1fr}
+  .fr2{grid-template-columns:1fr}
+  .podo-items{grid-template-columns:1fr}
+  .hero-right-stats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur-r"></div>
+<div class="pt" id="pt"></div>
+
+<!-- MOBILE MENU -->
+<div class="mob" id="mm">
+  <a href="#" onclick="go('home');cm();return false">Početna</a>
+  <a href="#" onclick="go('about');cm();return false">O nama</a>
+  <a href="#" onclick="go('services');cm();return false">Usluge</a>
+  <a href="#" onclick="go('certs');cm();return false">Sertifikati</a>
+  <a href="#" onclick="go('contact');cm();return false">Kontakt</a>
+  <a href="#" class="mc" onclick="go('contact');cm();return false">Zakažite termin</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nl" onclick="go('home');return false">Kozmetičko-Dermatološki<em>Salon Nena</em></a>
+  <ul class="nlinks">
+    <li><a href="#" onclick="go('home');return false">Početna</a></li>
+    <li><a href="#" onclick="go('about');return false">O nama</a></li>
+    <li><a href="#" onclick="go('services');return false">Usluge</a></li>
+    <li><a href="#" onclick="go('certs');return false">Sertifikati</a></li>
+    <li><a href="#" onclick="go('contact');return false">Kontakt</a></li>
+  </ul>
+  <a href="#" class="ncta" onclick="go('contact');return false">Zakažite termin</a>
+  <button class="hbg" id="hbg" onclick="tm()" aria-label="Meni"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ══════════ HOME ══════════ -->
+<div class="page active" id="home">
+
+  <!-- SPLIT HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-left-noise"></div>
+      <div class="hero-left-line"></div>
+      <div class="hero-tag">Zrenjanin, Srbija · od 1984.</div>
+      <h1 class="hero-h1">Nauka lepote<br>i zdravlja<br><em>stopala</em></h1>
+      <p class="hero-sub">Jedini specijalizovani podološki salon u Vojvodini. Medicinsko znanje, 40 godina iskustva, bezbroj zadovoljnih pacijenata.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-s" onclick="go('services');return false">Naše usluge</a>
+        <a href="#" class="btn-ol" onclick="go('contact');return false">Zakažite termin</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-right-img">
+        <svg class="hero-right-svg" viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="160" rx="70" ry="90" stroke="white" stroke-width="2"/>
+          <ellipse cx="64" cy="72" rx="14" ry="24" stroke="white" stroke-width="1.5"/>
+          <ellipse cx="84" cy="60" rx="14" ry="28" stroke="white" stroke-width="1.5"/>
+          <ellipse cx="106" cy="62" rx="14" ry="28" stroke="white" stroke-width="1.5"/>
+          <ellipse cx="128" cy="70" rx="12" ry="22" stroke="white" stroke-width="1.5"/>
+          <ellipse cx="147" cy="82" rx="9" ry="16" stroke="white" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="hero-right-overlay"></div>
+      <div class="hero-right-stats">
+        <div class="hrs"><div class="hrs-n">40</div><div class="hrs-l">Godina tradicije</div></div>
+        <div class="hrs"><div class="hrs-n">3.9★</div><div class="hrs-l">Google ocena</div></div>
+        <div class="hrs"><div class="hrs-n">1.</div><div class="hrs-l">U Vojvodini</div></div>
+        <div class="hrs"><div class="hrs-n">Med.</div><div class="hrs-l">Tim stručnjaka</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span class="ticker-item">Jedini specijalizovani podolog u Vojvodini</span>
+      <span class="ticker-item">40 godina iskustva i tradicije</span>
+      <span class="ticker-item">Medicinsko obrazovano osoblje</span>
+      <span class="ticker-item">Urasli nokti — kurije oči — patologija stopala</span>
+      <span class="ticker-item">Kongresi i sajmovi — stalno usavršavanje</span>
+      <span class="ticker-item">Zrenjanin — Srbija · od 1984.</span>
+      <span class="ticker-item">Jedini specijalizovani podolog u Vojvodini</span>
+      <span class="ticker-item">40 godina iskustva i tradicije</span>
+      <span class="ticker-item">Medicinsko obrazovano osoblje</span>
+      <span class="ticker-item">Urasli nokti — kurije oči — patologija stopala</span>
+      <span class="ticker-item">Kongresi i sajmovi — stalno usavršavanje</span>
+      <span class="ticker-item">Zrenjanin — Srbija · od 1984.</span>
+    </div>
+  </div>
+
+  <!-- PODOLOGY BIG SECTION -->
+  <section class="podo">
+    <div class="podo-left rv-l">
+      <div class="podo-left-watermark">P</div>
+      <span style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage-l);margin-bottom:20px;display:block">Naša specijalnost</span>
+      <h2>Podologija —<br><em>40 godina<br>prve na terenu</em></h2>
+      <p>Tretiramo sve što muči vaša stopala — sa medicinskom preciznošću i iskustvom koje se gradi decenijama, ne mesecima.</p>
+      <div class="podo-left-badge"><strong>Ekskluzivno u Vojvodini</strong>Jedini salon koji se 40 godina kontinuirano bavi podologijom i patologijom stopala na medicinskom nivou.</div>
+    </div>
+    <div class="podo-right rv-r">
+      <h3>Sve što <em>tretiramo</em></h3>
+      <ul class="podo-list">
+        <li><div class="podo-dot"></div>Urasli nokti — konzervativno</li>
+        <li><div class="podo-dot"></div>Urasli nokti — hirurški</li>
+        <li><div class="podo-dot"></div>Kurije oči (klavi)</li>
+        <li><div class="podo-dot"></div>Žuljevi i hiperkeratoze</li>
+        <li><div class="podo-dot"></div>Gljive noktiju (onihomikoza)</li>
+        <li><div class="podo-dot"></div>Dijabetičko stopalo</li>
+        <li><div class="podo-dot"></div>Plantarne bradavice</li>
+        <li><div class="podo-dot"></div>Deformiteti prstiju</li>
+        <li><div class="podo-dot"></div>Problemi pete</li>
+        <li><div class="podo-dot"></div>Medicinska nega stopala</li>
+      </ul>
+      <div class="podo-right-footer">
+        <div><div class="podo-years">40</div><div class="podo-years-label">Godina specijalizovane prakse</div></div>
+        <a href="#" class="btn-s" onclick="go('services');return false">Sve usluge</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why">
+    <div class="why-card rv">
+      <span class="why-num">01</span>
+      <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7A9E8E" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3 class="why-title">Medicinska edukacija</h3>
+      <p class="why-text">Osoblje kontinuirano prisustvuje kongresima i sajmovima u zemlji i inostranstvu — svake godine nova znanja.</p>
+    </div>
+    <div class="why-card rv d1">
+      <span class="why-num">02</span>
+      <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7A9E8E" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+      <h3 class="why-title">40 godina iskustva</h3>
+      <p class="why-text">Od 1984. gradimo znanje i poverenje. Naši pacijenti nam se vraćaju godinama — neki i decenijama.</p>
+    </div>
+    <div class="why-card rv d2">
+      <span class="why-num">03</span>
+      <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7A9E8E" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+      <h3 class="why-title">Jedini u Vojvodini</h3>
+      <p class="why-text">Podologija na medicinskom nivou — specijalizacija kojom se bavimo decenijama i koja nas čini jedinstvenim.</p>
+    </div>
+    <div class="why-card rv d3">
+      <span class="why-num">04</span>
+      <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7A9E8E" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+      <h3 class="why-title">Individualni pristup</h3>
+      <p class="why-text">Svaki pacijent je poseban slučaj — konsultacije i tretmani su uvek prilagođeni vašim konkretnim potrebama.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi">
+    <div class="testi-header">
+      <h2 class="rv">Šta kažu naši <em>pacijenti</em></h2>
+      <span class="rv d1" style="font-size:12px;color:var(--soft)">3.925 recenzija · Google</span>
+    </div>
+    <div class="testi-scroll">
+      <div class="tc"><div class="stars">★★★★★</div><p class="tt">"Jedino mesto gde su mi konačno rešili problem uraslog nokta. Profesionalan i nežan pristup — preporučujem svima!"</p><div class="ta">— Milica T., Zrenjanin</div></div>
+      <div class="tc"><div class="stars">★★★★★</div><p class="tt">"Sjajan salon, ljubazno osoblje i vidljivi rezultati. Dolazim već 10 godina i uvek odlazim zadovoljna."</p><div class="ta">— Jovana P., Novi Sad</div></div>
+      <div class="tc"><div class="stars">★★★★★</div><p class="tt">"Konačno medicinski pristup kozmetici. Saveti su stručni, tretmani efikasni. Salon Nena je pravo mesto."</p><div class="ta">— Dragana M., Zrenjanin</div></div>
+      <div class="tc"><div class="stars">★★★★★</div><p class="tt">"Imam dijabetičko stopalo i niko nije umeo da mi pomogne kao ovde. Znanje i pažnja su na najvišem nivou."</p><div class="ta">— Miroslav J., Zrenjanin</div></div>
+      <div class="tc"><div class="stars">★★★★★</div><p class="tt">"Dolazim 15 godina. Nikada nisam razočarana — uvek topla dobrodošlica i odličan rezultat tretmana."</p><div class="ta">— Vesna K., Zrenjanin</div></div>
+    </div>
+  </section>
+
+  <!-- HOME CTA SPLIT -->
+  <section class="home-cta">
+    <div class="hcta-l rv">
+      <h2>Zakažite vaš <em>termin danas</em></h2>
+      <a href="#" class="btn-n" onclick="go('contact');return false">Kontaktirajte nas</a>
+    </div>
+    <div class="hcta-r rv d1">
+      <div class="info-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7A9E8E" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div><div class="info-label">Adresa</div><div class="info-val">Kralja Aleksandra I Karađorđevića 25, Zrenjanin</div></div>
+      </div>
+      <div class="info-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7A9E8E" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+        <div><div class="info-label">Telefon</div><div class="info-val"><a href="tel:+38160564787">+381 60 5647877</a></div></div>
+      </div>
+      <div class="info-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#7A9E8E" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div><div class="info-label">Radno vreme</div><div class="info-val">Pon–Pet–Sub: 06:30–13:00 · Čet: 09:00–17:00</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="ft">
+      <div class="fb"><div class="fb-name">Kozmetičko-Dermatološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Specijalizovani podološki salon — jedini u Vojvodini sa 40 godina kontinuirane prakse.</p></div>
+      <div class="fc"><h4>Stranice</h4><ul><li><a href="#" onclick="go('home');return false">Početna</a></li><li><a href="#" onclick="go('about');return false">O nama</a></li><li><a href="#" onclick="go('services');return false">Usluge</a></li><li><a href="#" onclick="go('certs');return false">Sertifikati</a></li><li><a href="#" onclick="go('contact');return false">Kontakt</a></li></ul></div>
+      <div class="fc"><h4>Usluge</h4><ul><li><a href="#" onclick="go('services');return false">Podologija</a></li><li><a href="#" onclick="go('services');return false">Urasli nokti</a></li><li><a href="#" onclick="go('services');return false">Tretmani lica</a></li><li><a href="#" onclick="go('services');return false">Konsultacije</a></li></ul></div>
+      <div class="fc"><h4>Kontakt</h4><ul><li><a href="tel:+38160564787">+381 60 5647877</a></li><li><a>Kralja Aleksandra I 25</a></li><li><a>Zrenjanin 23000</a></li><li><a>Pon–Pet: 06:30–13:00</a></li></ul></div>
+    </div>
+    <div class="fbot"><span>© 2025 Kozmetičko-Dermatološki Salon Nena · Zrenjanin</span><span>Dizajnirano s ♡</span></div>
+  </footer>
+</div>
+
+<!-- ══════════ ABOUT ══════════ -->
+<div class="page" id="about">
+  <div class="about-hero">
+    <div>
+      <div style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage-l);margin-bottom:16px">Naša priča</div>
+      <h1>40 godina<br><em>posvećenosti</em></h1>
+    </div>
+    <div class="about-hero-right">
+      <p>Osnovan 1984. godine, Kozmetičko-Dermatološki Salon Nena izrastao je u referentni centar za podologiju i kozmetičku dermatologiju u Vojvodini.</p>
+      <a href="#" class="btn-s" onclick="go('contact');return false">Zakažite termin</a>
+    </div>
+    <div class="about-hero-watermark">N</div>
+  </div>
+
+  <section class="about-story">
+    <div class="rv-l">
+      <span style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage-d);display:block;margin-bottom:18px">Ko smo mi</span>
+      <h2>Tradicija koja <em>obavezuje</em></h2>
+      <div class="about-tag-list">
+        <div class="about-tag"><div class="about-tag-dot"></div>Medicinski edukovano osoblje</div>
+        <div class="about-tag"><div class="about-tag-dot"></div>Jedini podolozi u Vojvodini — 40 god.</div>
+        <div class="about-tag"><div class="about-tag-dot"></div>Redovni kongresi i sajmovi</div>
+        <div class="about-tag"><div class="about-tag-dot"></div>Individualni pristup svakom pacijentu</div>
+        <div class="about-tag"><div class="about-tag-dot"></div>Sterilna oprema — medicinski standardi</div>
+        <div class="about-tag"><div class="about-tag-dot"></div>Konsultacije uključene u svaki tretman</div>
+      </div>
+    </div>
+    <div class="about-story-divider"></div>
+    <div class="rv-r">
+      <p>Kozmetičko-dermatološki salon Nena postoji već 40 godina i u tom periodu izgradio je reputaciju stručnosti, pouzdanosti i iskrene brige za pacijente. Nalazimo se u centru Zrenjanina i pružamo usluge pacijentima iz celog regiona.</p>
+      <div class="about-pull">"Jedini smo u Vojvodini koji se 40 godina kontinuirano i stručno bavimo podologijom i patologijom stopala."</div>
+      <p>Naše osoblje je medicinsko obrazovano i redovno prisustvuje kongresima i sajmovima u Srbiji i inostranstvu. Svaka nova tehnika, svaki novi preparat — najpre prošao kroz našu stručnu analizu, pa tek onda do pacijenta.</p>
+      <p>Pored podologije, tretiramo i kožu lica — sa istom medicinskom ozbiljnošću i pažnjom koja nas definiše od prvog dana.</p>
+    </div>
+  </section>
+
+  <div class="about-nums">
+    <div class="an rv"><div class="anv">40+</div><div class="anl">Godina iskustva</div></div>
+    <div class="an rv d1"><div class="anv">3.9★</div><div class="anl">Google ocena</div></div>
+    <div class="an rv d2"><div class="anv">1.</div><div class="anl">Podolog u Vojvodini</div></div>
+    <div class="an rv d3"><div class="anv">∞</div><div class="anl">Zadovoljnih pacijenata</div></div>
+  </div>
+
+  <section class="about-team">
+    <div class="about-team-header">
+      <h2>Naš medicinski <em>tim</em></h2>
+      <p>Stručnjaci koji se stalno usavršavaju i donose nova znanja u salon.</p>
+    </div>
+    <div class="tmg">
+      <div class="tmc rv">
+        <div class="tmp" style="--tc1:#B8D4C8;--tc2:#7A9E8E">N</div>
+        <div class="tmi"><div class="tmn">Nena</div><div class="tmr">Osnivač & Podolog</div><p class="tmb">40 godina u podologiji — pionir struke u Vojvodini. Specijalizovana za kompleksne slučajeve patologije stopala.</p></div>
+      </div>
+      <div class="tmc rv d1">
+        <div class="tmp" style="--tc1:#EBF2EE;--tc2:#B8D4C8">K</div>
+        <div class="tmi"><div class="tmn">Kozmetičar / Dermatolog</div><div class="tmr">Tretmani lica</div><p class="tmb">Medicinski pristup tretmanima kože lica — dijagnostika, anti-age procedure i problemska koža.</p></div>
+      </div>
+      <div class="tmc rv d2">
+        <div class="tmp" style="--tc1:#263347;--tc2:#1A2332">S</div>
+        <div class="tmi"><div class="tmn">Specijalistkinja</div><div class="tmr">Podolog & Konsultant</div><p class="tmb">Aktivna na kongresima i sajmovima u Evropi — donosi savremene metode lečenja u svakodnevnu praksu.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="ft">
+      <div class="fb"><div class="fb-name">Kozmetičko-Dermatološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Specijalizovani podološki salon — jedini u Vojvodini.</p></div>
+      <div class="fc"><h4>Stranice</h4><ul><li><a href="#" onclick="go('home');return false">Početna</a></li><li><a href="#" onclick="go('services');return false">Usluge</a></li><li><a href="#" onclick="go('certs');return false">Sertifikati</a></li><li><a href="#" onclick="go('contact');return false">Kontakt</a></li></ul></div>
+      <div class="fc"><h4>Kontakt</h4><ul><li><a href="tel:+38160564787">+381 60 5647877</a></li><li><a>Kralja Aleksandra I 25</a></li></ul></div>
+      <div class="fc"><h4>Radno vreme</h4><ul><li><a>Pon–Pet–Sub: 06:30–13:00</a></li><li><a>Čet: 09:00–17:00</a></li><li><a>Ned: Zatvoreno</a></li></ul></div>
+    </div>
+    <div class="fbot"><span>© 2025 Kozmetičko-Dermatološki Salon Nena · Zrenjanin</span><span>Dizajnirano s ♡</span></div>
+  </footer>
+</div>
+
+<!-- ══════════ SERVICES ══════════ -->
+<div class="page" id="services">
+
+  <!-- BIG INTRO SPLIT -->
+  <div class="serv-intro">
+    <div class="serv-intro-l rv-l">
+      <span style="font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage-l);margin-bottom:16px;display:block;position:relative">Naše usluge</span>
+      <h1>Medicinsko<br>znanje u<br><em>svakom tretmanu</em></h1>
+      <p>Od podologije do dermatološke kozmetike — uvek sa stručnim pristupom i individualnom pažnjom.</p>
+    </div>
+    <div class="serv-intro-r rv-r">
+      <h3><em>Podologija</em> — naša specijalnost</h3>
+      <p>Jedini smo salon u Vojvodini koji se 40 godina neprekidno i stručno bavi podologijom. Tretiramo sve probleme stopala uz medicinski pristup i savremenu opremu.</p>
+      <div class="excl-box">
+        <div class="excl-num">40</div>
+        <div class="excl-text">
+          <div class="et1">Godina ekskluzivne prakse</div>
+          <div class="et2">Jedini specijalizovani podolog u Vojvodini — medicinska edukacija, kongresi, sajmovi, 40 godina neprekidne prakse.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PODO GRID -->
+  <div class="podo-grid">
+    <h3>Podološke <em>intervencije</em></h3>
+    <div class="podo-items">
+      <div class="pi rv"><div class="pi-icon">🦶</div><div class="pi-name">Urasli nokti</div><p class="pi-desc">Konzervativno i hirurško lečenje, bez bola</p></div>
+      <div class="pi rv d1"><div class="pi-icon">👁️</div><div class="pi-name">Kurije oči (klavi)</div><p class="pi-desc">Bezbolno uklanjanje i prevencija povratka</p></div>
+      <div class="pi rv d2"><div class="pi-icon">🔬</div><div class="pi-name">Gljive noktiju</div><p class="pi-desc">Onihomikoza — dijagnoza i lečenje</p></div>
+      <div class="pi rv d3"><div class="pi-icon">⚕️</div><div class="pi-name">Dijabetičko stopalo</div><p class="pi-desc">Specijalizovana medicinska nega i prevencija</p></div>
+      <div class="pi rv"><div class="pi-icon">🏥</div><div class="pi-name">Žuljevi i hiperkeratoze</div><p class="pi-desc">Profesionalno uklanjanje i nega kože stopala</p></div>
+      <div class="pi rv d1"><div class="pi-icon">🌿</div><div class="pi-name">Plantarne bradavice</div><p class="pi-desc">Efikasno lečenje bez hirurgije</p></div>
+      <div class="pi rv d2"><div class="pi-icon">🦴</div><div class="pi-name">Deformiteti prstiju</div><p class="pi-desc">Ortotika i konzervativno lečenje</p></div>
+      <div class="pi rv d3"><div class="pi-icon">💊</div><div class="pi-name">Problemi pete</div><p class="pi-desc">Pukotine, povrede, bolne pete</p></div>
+    </div>
+  </div>
+
+  <!-- OTHER SERVICES -->
+  <div style="padding:56px 56px 0;background:var(--ivory)"><h2 class="rv" style="font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,38px);font-weight:400;color:var(--navy)">Ostale <em style="font-style:italic;color:var(--sage-d)">usluge</em></h2></div>
+  <div class="other-serv rv">
+    <div class="os">
+      <div class="os-img"><div class="os-img-ph" style="--ci1:#EBF2EE;--ci2:#B8D4C8"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="20" r="12" stroke="#4E7A6A" stroke-width="1.5"/><path d="M16 52c0-8.84 7.16-16 16-16s16 7.16 16 16" stroke="#4E7A6A" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+      <h3 class="os-name">Tretmani lica</h3>
+      <p class="os-desc">Dermatološki pristup nezi kože lica — od dijagnostike do tretmana.</p>
+      <ul class="os-list"><li>Dubinsko čišćenje lica</li><li>Anti-age tretmani</li><li>Kemijski piling</li><li>Tretman akni i ožiljaka</li><li>Mezoterapija</li></ul>
+      <div class="os-link">Zakažite</div>
+    </div>
+    <div class="os">
+      <div class="os-img"><div class="os-img-ph" style="--ci1:#F4F7F5;--ci2:#D0E4DA"><svg viewBox="0 0 64 64" fill="none"><path d="M22 48 L20 22 L26 24 L32 16 L38 24 L44 22 L42 48 Z" stroke="#4E7A6A" stroke-width="1.5" stroke-linejoin="round"/><path d="M22 32 L42 32" stroke="#4E7A6A" stroke-width="1"/><path d="M23 38 L41 38" stroke="#4E7A6A" stroke-width="1"/></svg></div></div>
+      <h3 class="os-name">Medicinska manikura</h3>
+      <p class="os-desc">Stručna nega noktiju i kože ruku uz medicinski pristup.</p>
+      <ul class="os-list"><li>Klasična medicinska manikura</li><li>Trajni lak</li><li>Nega problematičnih noktiju</li><li>Parafinski tretman</li></ul>
+      <div class="os-link">Zakažite</div>
+    </div>
+    <div class="os">
+      <div class="os-img"><div class="os-img-ph" style="--ci1:#EBF2EE;--ci2:#7A9E8E"><svg viewBox="0 0 64 64" fill="none"><rect x="16" y="14" width="32" height="38" rx="2" stroke="white" stroke-width="1.5"/><path d="M24 22 L40 22" stroke="white" stroke-width="1" stroke-linecap="round"/><path d="M24 30 L40 30" stroke="white" stroke-width="1" stroke-linecap="round"/><path d="M24 38 L34 38" stroke="white" stroke-width="1" stroke-linecap="round"/></svg></div></div>
+      <h3 class="os-name">Dermatološke konsultacije</h3>
+      <p class="os-desc">Stručan savet medicinskog osoblja za sve vaše dermatološke dileme.</p>
+      <ul class="os-list"><li>Analiza kože lica</li><li>Analiza stanja stopala</li><li>Plan tretmana</li><li>Preporuka preparata</li></ul>
+      <div class="os-link">Zakažite</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft">
+      <div class="fb"><div class="fb-name">Kozmetičko-Dermatološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Jedini specijalizovani podolog u Vojvodini.</p></div>
+      <div class="fc"><h4>Stranice</h4><ul><li><a href="#" onclick="go('home');return false">Početna</a></li><li><a href="#" onclick="go('about');return false">O nama</a></li><li><a href="#" onclick="go('certs');return false">Sertifikati</a></li><li><a href="#" onclick="go('contact');return false">Kontakt</a></li></ul></div>
+      <div class="fc"><h4>Kontakt</h4><ul><li><a href="tel:+38160564787">+381 60 5647877</a></li><li><a>Kralja Aleksandra I 25, Zrenjanin</a></li></ul></div>
+      <div class="fc"><h4>Radno vreme</h4><ul><li><a>Pon–Pet–Sub: 06:30–13:00</a></li><li><a>Čet: 09:00–17:00</a></li></ul></div>
+    </div>
+    <div class="fbot"><span>© 2025 Kozmetičko-Dermatološki Salon Nena · Zrenjanin</span><span>Dizajnirano s ♡</span></div>
+  </footer>
+</div>
+
+<!-- ══════════ CERTS ══════════ -->
+<div class="page" id="certs">
+  <div class="certs-hero">
+    <div class="certs-hero-left">
+      <span class="tag">Naše akreditacije</span>
+      <h1>Sertifikati i<br><em>edukacije</em></h1>
+      <p>40 godina neprekidnog usavršavanja — svaki sertifikat je dokaz posvećenosti i profesionalizma koji gradimo od 1984. godine.</p>
+    </div>
+    <div class="certs-hero-right">
+      <div class="big">40</div>
+      <div class="lbl">Godina edukacije</div>
+    </div>
+  </div>
+
+  <div class="cert-grid">
+    <div class="cert-card rv">
+      <div class="cert-ph" style="--ci1:#EBF2EE;--ci2:#B8D4C8"><svg viewBox="0 0 64 64" fill="none"><rect x="14" y="10" width="36" height="44" rx="2" stroke="#4E7A6A" stroke-width="1.5"/><path d="M22 22 L42 22" stroke="#4E7A6A" stroke-width="1.5" stroke-linecap="round"/><path d="M22 30 L42 30" stroke="#4E7A6A" stroke-width="1" stroke-linecap="round"/><path d="M22 38 L34 38" stroke="#4E7A6A" stroke-width="1" stroke-linecap="round"/><circle cx="44" cy="46" r="8" fill="#EBF2EE" stroke="#4E7A6A" stroke-width="1.5"/><path d="M41 46 L43 48 L47 44" stroke="#4E7A6A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="cert-year-tag">2024</span><span class="cert-upload-btn">+ Dodajte sliku</span></div>
+      <div class="cert-info"><div class="cert-name">Podološki kongres 2024</div><div class="cert-issuer">Evropsko udruženje podologa</div><p class="cert-desc">Napredne tehnike lečenja uraslog nokta i patologije stopala.</p></div>
+    </div>
+    <div class="cert-card rv d1">
+      <div class="cert-ph" style="--ci1:#F4F7F5;--ci2:#D0E4DA"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="28" r="14" stroke="#4E7A6A" stroke-width="1.5"/><path d="M24 46 L32 52 L40 46" stroke="#4E7A6A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 42 L32 52" stroke="#4E7A6A" stroke-width="1.5" stroke-linecap="round"/><path d="M26 28 L30 32 L38 24" stroke="#4E7A6A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="cert-year-tag">2023</span><span class="cert-upload-btn">+ Dodajte sliku</span></div>
+      <div class="cert-info"><div class="cert-name">Dermatološka edukacija</div><div class="cert-issuer">Srpsko dermatološko društvo</div><p class="cert-desc">Napredni kurs kozmetičke dermatologije i tretmana kože lica.</p></div>
+    </div>
+    <div class="cert-card rv d2">
+      <div class="cert-ph" style="--ci1:#EBF2EE;--ci2:#EBF2EE"><svg viewBox="0 0 64 64" fill="none"><path d="M32 12 L36 24 L50 24 L39 32 L43 44 L32 36 L21 44 L25 32 L14 24 L28 24 Z" stroke="#4E7A6A" stroke-width="1.5" stroke-linejoin="round"/></svg><span class="cert-year-tag">2022</span><span class="cert-upload-btn">+ Dodajte sliku</span></div>
+      <div class="cert-info"><div class="cert-name">Beauty & Med Sajam</div><div class="cert-issuer">Beograd, Srbija</div><p class="cert-desc">Vodeći sajam estetske medicine — nove tehnike i preparati.</p></div>
+    </div>
+    <div class="cert-card rv">
+      <div class="cert-ph" style="--ci1:#F8F5F0;--ci2:#E8DDD0"><svg viewBox="0 0 64 64" fill="none"><rect x="12" y="16" width="40" height="32" rx="2" stroke="#9E7A45" stroke-width="1.5"/><path d="M20 28 L28 36 L44 20" stroke="#9E7A45" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="cert-year-tag">2021</span><span class="cert-upload-btn">+ Dodajte sliku</span></div>
+      <div class="cert-info"><div class="cert-name">Dijabetičko stopalo</div><div class="cert-issuer">Med. fakultet, Novi Sad</div><p class="cert-desc">Specijalizacija iz dijabetičkog stopala i preventivne podologije.</p></div>
+    </div>
+    <div class="cert-card rv d1">
+      <div class="cert-ph" style="--ci1:#EBF2EE;--ci2:#B8D4C8"><svg viewBox="0 0 64 64" fill="none"><rect x="14" y="10" width="36" height="44" rx="2" stroke="#4E7A6A" stroke-width="1.5"/><path d="M22 22 L42 22" stroke="#4E7A6A" stroke-width="1.5" stroke-linecap="round"/><path d="M22 30 L42 30" stroke="#4E7A6A" stroke-width="1" stroke-linecap="round"/><path d="M22 38 L34 38" stroke="#4E7A6A" stroke-width="1" stroke-linecap="round"/></svg><span class="cert-year-tag">2020</span><span class="cert-upload-btn">+ Dodajte sliku</span></div>
+      <div class="cert-info"><div class="cert-name">Onihomikoza — lečenje</div><div class="cert-issuer">Evropski kongres podologije</div><p class="cert-desc">Napredne tehnike lečenja gljiva noktiju i onihomikoza.</p></div>
+    </div>
+    <div class="cert-card rv d2">
+      <div class="cert-ph" style="--ci1:#F4F7F5;--ci2:#D0E4DA"><svg viewBox="0 0 64 64" fill="none"><path d="M32 14 C22 14 14 22 14 32 C14 42 22 50 32 50 C42 50 50 42 50 32 C50 22 42 14 32 14Z" stroke="#4E7A6A" stroke-width="1.5"/><path d="M24 32 L30 38 L40 26" stroke="#4E7A6A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="cert-year-tag">2019</span><span class="cert-upload-btn">+ Dodajte sliku</span></div>
+      <div class="cert-info"><div class="cert-name">Sertifikat kvaliteta</div><div class="cert-issuer">Standardizaciono telo Srbije</div><p class="cert-desc">ISO sertifikacija za usluge kozmetičke dermatologije.</p></div>
+    </div>
+  </div>
+
+  <!-- HORIZONTAL TIMELINE -->
+  <div class="timeline-wrap">
+    <h3>Put kroz <em>četiri decenije</em></h3>
+    <div class="timeline-h">
+      <div class="tl-step rv"><div class="tl-year">1984</div><div class="tl-title">Osnivanje</div><p class="tl-body">Salon Nena otvara vrata u Zrenjaninu — počinje 40-godišnja tradicija.</p></div>
+      <div class="tl-step rv d1"><div class="tl-year">1990-e</div><div class="tl-title">Specijalizacija</div><p class="tl-body">Salon postaje referentni centar za podologiju u Vojvodini.</p></div>
+      <div class="tl-step rv d2"><div class="tl-year">2000-e</div><div class="tl-title">Međunarodna edukacija</div><p class="tl-body">Redovni kongresi i sajmovi u Evropi — svetski standardi u salon.</p></div>
+      <div class="tl-step rv"><div class="tl-year">2010-e</div><div class="tl-title">Proširenje usluga</div><p class="tl-body">Uvođenje novih dermatoloških tretmana lica i savremene opreme.</p></div>
+      <div class="tl-step rv d1"><div class="tl-year">2024</div><div class="tl-title">40 godina — jedini u Vojvodini</div><p class="tl-body">Salon Nena slavi 40 godina rada kao jedini specijalizovani podolog u Vojvodini.</p></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft">
+      <div class="fb"><div class="fb-name">Kozmetičko-Dermatološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Jedini specijalizovani podolog u Vojvodini.</p></div>
+      <div class="fc"><h4>Stranice</h4><ul><li><a href="#" onclick="go('home');return false">Početna</a></li><li><a href="#" onclick="go('about');return false">O nama</a></li><li><a href="#" onclick="go('services');return false">Usluge</a></li><li><a href="#" onclick="go('contact');return false">Kontakt</a></li></ul></div>
+      <div class="fc"><h4>Kontakt</h4><ul><li><a href="tel:+38160564787">+381 60 5647877</a></li><li><a>Kralja Aleksandra I 25</a></li></ul></div>
+      <div class="fc"><h4>Radno vreme</h4><ul><li><a>Pon–Pet–Sub: 06:30–13:00</a></li><li><a>Čet: 09:00–17:00</a></li></ul></div>
+    </div>
+    <div class="fbot"><span>© 2025 Kozmetičko-Dermatološki Salon Nena · Zrenjanin</span><span>Dizajnirano s ♡</span></div>
+  </footer>
+</div>
+
+<!-- ══════════ CONTACT ══════════ -->
+<div class="page" id="contact">
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <span class="cl-tag">Dođite kod nas</span>
+      <h1>Kontaktirajte <em>nas</em></h1>
+      <p>Radujemo se vašoj poseti. Pozovite nas ili popunite formu — zakazujemo brzo i bez komplikacija.</p>
+      <div class="cdt"><div class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="#4E7A6A" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="clbl">Adresa</div><div class="cval">Kralja Aleksandra I Karađorđevića 25<br>Zrenjanin 23000, Srbija</div></div></div>
+      <div class="cdt"><div class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="#4E7A6A" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg></div><div><div class="clbl">Telefon</div><div class="cval"><a href="tel:+38160564787">+381 60 5647877</a></div></div></div>
+      <div class="chrs">
+        <h4>Radno vreme</h4>
+        <div class="hr"><span>Ponedeljak</span><span class="hop">06:30 – 13:00</span></div>
+        <div class="hr"><span>Utorak</span><span class="hop">06:30 – 13:00</span></div>
+        <div class="hr"><span>Sreda</span><span class="hop">06:30 – 13:00</span></div>
+        <div class="hr"><span>Četvrtak</span><span class="hop">09:00 – 17:00</span></div>
+        <div class="hr"><span>Petak</span><span class="hop">06:30 – 13:00</span></div>
+        <div class="hr"><span>Subota</span><span class="hop">06:30 – 13:00</span></div>
+        <div class="hr"><span>Nedjelja</span><span style="color:var(--soft)">Zatvoreno</span></div>
+      </div>
+      <div class="contact-divider"></div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:var(--navy);margin-bottom:7px">Zakažite <em style="font-style:italic;color:var(--sage-d)">termin</em></h2>
+      <p style="font-size:13px;color:var(--soft);margin-bottom:22px">Popunite formu — odgovaramo u najkraćem roku.</p>
+      <div id="cf">
+        <div class="fr2">
+          <div class="fg"><label>Ime</label><input type="text" placeholder="Vaše ime"></div>
+          <div class="fg"><label>Prezime</label><input type="text" placeholder="Vaše prezime"></div>
+        </div>
+        <div class="fr2">
+          <div class="fg"><label>Telefon</label><input type="tel" placeholder="+381 6x xxx xxxx"></div>
+          <div class="fg"><label>Email (opciono)</label><input type="email" placeholder="vas@email.com"></div>
+        </div>
+        <div class="fg"><label>Usluga</label>
+          <select><option value="">Odaberite uslugu</option>
+            <optgroup label="Podologija"><option>Urasli nokti</option><option>Kurije oči (klavi)</option><option>Gljive noktiju</option><option>Dijabetičko stopalo</option><option>Opšta podološka konsultacija</option></optgroup>
+            <optgroup label="Tretmani lica"><option>Dubinsko čišćenje</option><option>Anti-age tretman</option><option>Kemijski piling</option></optgroup>
+            <optgroup label="Ostalo"><option>Medicinska manikura</option><option>Dermatološka konsultacija</option></optgroup>
+          </select>
+        </div>
+        <div class="fr2">
+          <div class="fg"><label>Željeni datum</label><input type="date"></div>
+          <div class="fg"><label>Željeno vreme</label><input type="time"></div>
+        </div>
+        <div class="fg"><label>Napomena</label><textarea placeholder="Opišite vaš problem ili posebne zahteve..."></textarea></div>
+        <button class="fsub" onclick="subForm()">Pošaljite zahtev →</button>
+      </div>
+      <div class="fsuc" id="fsu"><h3>Primljeno! ✦</h3><p>Javiћemo vam se uskoro. Vidimo se u Salonu Nena!</p></div>
+    </div>
+    <div class="contact-right">
+      <iframe src="https://maps.google.com/maps?q=Kralja+Aleksandra+I+Karadjordjevica+25,+Zrenjanin+23000,+Serbia&z=16&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="contact-right-overlay"></div>
+      <a href="https://www.google.com/maps/search/Kralja+Aleksandra+I+Karadjordjevica+25+Zrenjanin" target="_blank" class="contact-right-btn">Otvori u Google Maps →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft">
+      <div class="fb"><div class="fb-name">Kozmetičko-Dermatološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Jedini specijalizovani podolog u Vojvodini.</p></div>
+      <div class="fc"><h4>Stranice</h4><ul><li><a href="#" onclick="go('home');return false">Početna</a></li><li><a href="#" onclick="go('about');return false">O nama</a></li><li><a href="#" onclick="go('services');return false">Usluge</a></li><li><a href="#" onclick="go('certs');return false">Sertifikati</a></li></ul></div>
+      <div class="fc"><h4>Kontakt</h4><ul><li><a href="tel:+38160564787">+381 60 5647877</a></li><li><a>Kralja Aleksandra I 25</a></li><li><a>Zrenjanin 23000, Srbija</a></li></ul></div>
+      <div class="fc"><h4>Radno vreme</h4><ul><li><a>Pon–Pet–Sub: 06:30–13:00</a></li><li><a>Čet: 09:00–17:00</a></li><li><a>Ned: Zatvoreno</a></li></ul></div>
+    </div>
+    <div class="fbot"><span>© 2025 Kozmetičko-Dermatološki Salon Nena · Zrenjanin</span><span>Dizajnirano s ♡</span></div>
+  </footer>
+</div>
+
+<script>
+/* cursor */
+const c=document.getElementById('cur'),r=document.getElementById('cur-r');
+if(c){let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.left=(mx-5)+'px';c.style.top=(my-5)+'px'});function ar(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;r.style.left=(rx-16)+'px';r.style.top=(ry-16)+'px';requestAnimationFrame(ar)}ar();document.addEventListener('mouseover',e=>{if(e.target.closest('a,button')){c.style.transform='scale(2.2)';r.style.transform='scale(1.3)'}else{c.style.transform='scale(1)';r.style.transform='scale(1)'}})}
+
+/* nav scroll */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',window.scrollY>50));
+
+/* mobile */
+function tm(){const h=document.getElementById('hbg'),m=document.getElementById('mm');h.classList.toggle('op');m.classList.toggle('op');document.body.style.overflow=m.classList.contains('op')?'hidden':''}
+function cm(){document.getElementById('hbg').classList.remove('op');document.getElementById('mm').classList.remove('op');document.body.style.overflow=''}
+
+function fixNav(id){
+  const n=document.getElementById('nav');
+  if(id==='home'){document.body.classList.remove('pgl');n.classList.remove('sc')}
+  else{document.body.classList.add('pgl');n.classList.add('sc')}
+  document.querySelectorAll('.nlinks a').forEach(a=>a.classList.remove('ac'));
+  const idx={home:0,about:1,services:2,certs:3,contact:4};
+  const links=document.querySelectorAll('.nlinks a');
+  if(links[idx[id]])links[idx[id]].classList.add('ac');
+}
+
+function go(id){
+  if(event)event.preventDefault();cm();
+  const t=document.getElementById('pt');
+  t.classList.add('active');
+  setTimeout(()=>{
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0,0);
+    setTimeout(()=>{t.style.transformOrigin='right';t.classList.remove('active');setTimeout(()=>t.style.transformOrigin='left',450)},80);
+    rev();fixNav(id);
+  },420);
+}
+
+function rev(){
+  const items=document.querySelectorAll('.page.active .rv, .page.active .rv-l, .page.active .rv-r');
+  const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.07});
+  items.forEach(i=>{i.classList.remove('in');obs.observe(i)});
+}
+rev();fixNav('home');
+
+function subForm(){document.getElementById('cf').style.display='none';document.getElementById('fsu').style.display='block'}
+</script>
+</body>
+</html>
