@@ -305,7 +305,8 @@ footer{background:var(--navy);padding:64px 56px 32px}
 .podo-items{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
 .pi{background:var(--ivory);padding:28px 24px;transition:background .3s}
 .pi:hover{background:var(--sage-pale)}
-.pi-icon{font-size:22px;margin-bottom:12px}
+.pi-icon{width:42px;height:42px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:var(--sage-pale);border:1px solid var(--border);flex-shrink:0}
+.pi-icon svg{width:20px;height:20px;stroke:var(--sage-d)}
 .pi-name{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:6px}
 .pi-desc{font-size:12px;line-height:1.7;color:var(--soft)}
 
@@ -642,7 +643,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
       <div class="hero-left-line"></div>
       <div class="hero-tag">Zrenjanin, Srbija · od 1984.</div>
       <h1 class="hero-h1">Nauka lepote<br>i zdravlja<br><em>stopala</em></h1>
-      <p class="hero-sub">Jedini specijalizovani podološki salon u Zrenjaninu. Medicinsko znanje, 40 godina iskustva, bezbroj zadovoljnih pacijenata.</p>
+      <p class="hero-sub">Jedini specijalizovani podološki salon u Zrenjaninu. Medicinsko znanje, dugogodišnje iskustvo, bezbroj zadovoljnih pacijenata.</p>
       <div class="hero-btns">
         <a href="#" class="btn-s" onclick="go('services');return false">Naše usluge</a>
         <a href="#" class="btn-ol" onclick="go('contact');return false">Zakažite termin</a>
@@ -650,7 +651,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
     </div>
     <div class="hero-right">
       <div class="hero-right-img">
-        <img src="hero.jpg" alt="Kozmetičko-Dermatološki Salon Nena">
+        <img src="./hero.jpg" alt="Kozmetičko-Dermatološki Salon Nena">
       </div>
       <div class="hero-right-overlay"></div>
       <div class="hero-right-stats">
@@ -685,9 +686,9 @@ footer{background:var(--navy);padding:64px 56px 32px}
     <div class="podo-left rv-l">
       <div class="podo-left-watermark">P</div>
       <span style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage-l);margin-bottom:20px;display:block">Naša specijalnost</span>
-      <h2>Podologija —<br><em>40 godina<br>prve na terenu</em></h2>
+      <h2>Podologija —<br><em>naša primarna<br>specijalnost</em></h2>
       <p>Tretiramo sve što muči vaša stopala — sa medicinskom preciznošću i iskustvom koje se gradi decenijama, ne mesecima.</p>
-      <div class="podo-left-badge"><strong>Ekskluzivno u Zrenjaninu</strong>Jedini salon koji se 40 godina kontinuirano bavi podologijom i patologijom stopala na medicinskom nivou.</div>
+      <div class="podo-left-badge"><strong>Jedini u Zrenjaninu</strong>Salon koji se kontinuirano bavi podologijom i patologijom stopala na medicinskom nivou — od 1984. godine.</div>
     </div>
     <div class="podo-right rv-r">
       <img src="img4.jpg" alt="Podološki tretman" style="width:100%;height:200px;object-fit:cover;margin-bottom:24px;display:block">
@@ -722,8 +723,8 @@ footer{background:var(--navy);padding:64px 56px 32px}
     <div class="why-card rv d1">
       <span class="why-num">02</span>
       <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7A9E8E" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-      <h3 class="why-title">40 godina iskustva</h3>
-      <p class="why-text">Od 1984. gradimo znanje i poverenje. Naši pacijenti nam se vraćaju godinama — neki i decenijama.</p>
+      <h3 class="why-title">Iskustvo od 1984.</h3>
+      <p class="why-text">Naši pacijenti nam se vraćaju godinama — neki i decenijama. Tradicija znanja i poverenja koja se ne kupuje.</p>
     </div>
     <div class="why-card rv d2">
       <span class="why-num">03</span>
@@ -796,7 +797,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
 
   <footer>
     <div class="ft">
-      <div class="fb"><div class="fb-name">Kozmetičko-Dermatološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Specijalizovani podološki salon — jedini u Zrenjaninu sa 40 godina kontinuirane prakse.</p></div>
+      <div class="fb"><div class="fb-name">Kozmetičko-Dermatološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Specijalizovani podološki salon — jedini u Zrenjaninu.</p></div>
       <div class="fc"><h4>Stranice</h4><ul><li><a href="#" onclick="go('home');return false">Početna</a></li><li><a href="#" onclick="go('about');return false">O nama</a></li><li><a href="#" onclick="go('services');return false">Usluge</a></li><li><a href="#" onclick="go('certs');return false">Sertifikati</a></li><li><a href="#" onclick="go('contact');return false">Kontakt</a></li></ul></div>
       <div class="fc"><h4>Usluge</h4><ul><li><a href="#" onclick="go('services');return false">Podologija</a></li><li><a href="#" onclick="go('services');return false">Urasli nokti</a></li><li><a href="#" onclick="go('services');return false">Tretmani lica</a></li><li><a href="#" onclick="go('services');return false">Konsultacije</a></li></ul></div>
       <div class="fc"><h4>Kontakt</h4><ul><li><a href="tel:+38160564787">+381 60 5647877</a></li><li><a>Kralja Aleksandra Karađorđevića 25</a></li><li><a>Zrenjanin 23000</a></li><li><a>Pon–Sub: 06:30–13:00</a></li></ul></div>
@@ -834,7 +835,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
     </div>
     <div class="about-story-divider"></div>
     <div class="rv-r">
-      <p>Kozmetičko-dermatološki salon Nena postoji već 40 godina i u tom periodu izgradio je reputaciju stručnosti, pouzdanosti i iskrene brige za pacijente. Nalazimo se u centru Zrenjanina i pružamo usluge pacijentima iz celog regiona.</p>
+      <p>Kozmetičko-dermatološki salon Nena posluje od 1984. i u tom periodu izgradio je reputaciju stručnosti, pouzdanosti i iskrene brige za pacijente. Nalazimo se u centru Zrenjanina i pružamo usluge pacijentima iz celog regiona.</p>
       <div class="about-pull">"Jedini smo u Zrenjaninu koji se 40 godina kontinuirano i stručno bavimo podologijom i patologijom stopala."</div>
       <p>Naše osoblje je medicinsko obrazovano i redovno prisustvuje kongresima i sajmovima u Srbiji i inostranstvu. Svaka nova tehnika, svaki novi preparat — najpre prošao kroz našu stručnu analizu, pa tek onda do pacijenta.</p>
       <p>Pored podologije, tretiramo i kožu lica — sa istom medicinskom ozbiljnošću i pažnjom koja nas definiše od prvog dana.</p>
@@ -861,7 +862,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
     <div class="tmg">
       <div class="tmc rv">
         <div class="tmp" style="--tc1:#B8D4C8;--tc2:#7A9E8E">N</div>
-        <div class="tmi"><div class="tmn">Nena</div><div class="tmr">Osnivač & Podolog</div><p class="tmb">40 godina u podologiji — pionir struke u Vojvodini. Specijalizovana za kompleksne slučajeve patologije stopala.</p></div>
+        <div class="tmi"><div class="tmn">Nena</div><div class="tmr">Osnivač & Podolog</div><p class="tmb">Osnivač salona i pionir podologije u Zrenjaninu. Specijalizovana za kompleksne slučajeve patologije stopala.</p></div>
       </div>
       <div class="tmc rv d1">
         <div class="tmp" style="--tc1:#EBF2EE;--tc2:#B8D4C8">K</div>
@@ -897,12 +898,12 @@ footer{background:var(--navy);padding:64px 56px 32px}
     </div>
     <div class="serv-intro-r rv-r">
       <h3><em>Podologija</em> — naša specijalnost</h3>
-      <p>Jedini smo salon u Zrenjaninu koji se 40 godina neprekidno i stručno bavi podologijom. Tretiramo sve probleme stopala uz medicinski pristup i savremenu opremu.</p>
+      <p>Jedini smo salon u Zrenjaninu koji se neprekidno i stručno bavi podologijom. Tretiramo sve probleme stopala uz medicinski pristup i savremenu opremu.</p>
       <div class="excl-box">
-        <div class="excl-num">40</div>
+        <div class="excl-num">1984</div>
         <div class="excl-text">
-          <div class="et1">Godina ekskluzivne prakse</div>
-          <div class="et2">Jedini specijalizovani podolog u Zrenjaninu — medicinska edukacija, kongresi, sajmovi, 40 godina neprekidne prakse.</div>
+          <div class="et1">Osnivanje salona</div>
+          <div class="et2">Jedini specijalizovani podolog u Zrenjaninu — medicinska edukacija, kongresi, sajmovi, neprekidna praksa od osnivanja.</div>
         </div>
       </div>
     </div>
@@ -912,14 +913,111 @@ footer{background:var(--navy);padding:64px 56px 32px}
   <div class="podo-grid">
     <h3>Podološke <em>intervencije</em></h3>
     <div class="podo-items">
-      <div class="pi rv"><div class="pi-icon">🦶</div><div class="pi-name">Urasli nokti</div><p class="pi-desc">Konzervativno i hirurško lečenje, bez bola</p></div>
-      <div class="pi rv d1"><div class="pi-icon">👁️</div><div class="pi-name">Kurije oči (klavi)</div><p class="pi-desc">Bezbolno uklanjanje i prevencija povratka</p></div>
-      <div class="pi rv d2"><div class="pi-icon">🔬</div><div class="pi-name">Gljive noktiju</div><p class="pi-desc">Onihomikoza — dijagnoza i lečenje</p></div>
-      <div class="pi rv d3"><div class="pi-icon">⚕️</div><div class="pi-name">Dijabetičko stopalo</div><p class="pi-desc">Specijalizovana medicinska nega i prevencija</p></div>
-      <div class="pi rv"><div class="pi-icon">🏥</div><div class="pi-name">Žuljevi i hiperkeratoze</div><p class="pi-desc">Profesionalno uklanjanje i nega kože stopala</p></div>
-      <div class="pi rv d1"><div class="pi-icon">🌿</div><div class="pi-name">Plantarne bradavice</div><p class="pi-desc">Efikasno lečenje bez hirurgije</p></div>
-      <div class="pi rv d2"><div class="pi-icon">🦴</div><div class="pi-name">Deformiteti prstiju</div><p class="pi-desc">Ortotika i konzervativno lečenje</p></div>
-      <div class="pi rv d3"><div class="pi-icon">💊</div><div class="pi-name">Problemi pete</div><p class="pi-desc">Pukotine, povrede, bolne pete</p></div>
+      <div class="pi rv">
+        <div class="pi-icon">
+          <!-- Urasli nokti: nail plate with sides curving into skin -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 4h10a1 1 0 011 1v5a1 1 0 01-1 1H7a1 1 0 01-1-1V5a1 1 0 011-1z"/>
+            <path d="M7 11c-2 .5-3 2-3 3.5"/>
+            <path d="M17 11c2 .5 3 2 3 3.5"/>
+            <path d="M4 17.5h16"/>
+            <path d="M4 14.5c2.5-1.5 5-2 8-2s5.5.5 8 2"/>
+          </svg>
+        </div>
+        <div class="pi-name">Urasli nokti</div><p class="pi-desc">Konzervativno i hirurško lečenje, bez bola</p>
+      </div>
+      <div class="pi rv d1">
+        <div class="pi-icon">
+          <!-- Kurije oči: bullseye/target — corn cross-section -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="10" r="7"/>
+            <circle cx="12" cy="10" r="4"/>
+            <circle cx="12" cy="10" r="1.5"/>
+            <path d="M3 20h18"/>
+            <path d="M8 17c1-3 2.2-5 4-5s3 2 4 5"/>
+          </svg>
+        </div>
+        <div class="pi-name">Kurije oči (klavi)</div><p class="pi-desc">Bezbolno uklanjanje i prevencija povratka</p>
+      </div>
+      <div class="pi rv d2">
+        <div class="pi-icon">
+          <!-- Gljive noktiju: microscope -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 21h12"/>
+            <path d="M9 21v-3h6v3"/>
+            <path d="M12 18v-6"/>
+            <circle cx="12" cy="9" r="3"/>
+            <path d="M12 6V4"/>
+            <path d="M10 4h4"/>
+          </svg>
+        </div>
+        <div class="pi-name">Gljive noktiju</div><p class="pi-desc">Onihomikoza — dijagnoza i lečenje</p>
+      </div>
+      <div class="pi rv d3">
+        <div class="pi-icon">
+          <!-- Dijabetičko stopalo: blood drop with medical cross -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C12 2 5 9 5 14a7 7 0 0014 0c0-5-7-12-7-12z"/>
+            <line x1="9" y1="14" x2="15" y2="14"/>
+            <line x1="12" y1="11" x2="12" y2="17"/>
+          </svg>
+        </div>
+        <div class="pi-name">Dijabetičko stopalo</div><p class="pi-desc">Specijalizovana medicinska nega i prevencija</p>
+      </div>
+      <div class="pi rv">
+        <div class="pi-icon">
+          <!-- Žuljevi: foot file / rasp tool with skin layers -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="5" rx="2.5"/>
+            <line x1="7" y1="11" x2="7" y2="16"/>
+            <line x1="10" y1="11" x2="10" y2="16"/>
+            <line x1="13" y1="11" x2="13" y2="16"/>
+            <line x1="16" y1="11" x2="16" y2="16"/>
+            <path d="M6 9h12"/>
+            <path d="M8 7h8"/>
+          </svg>
+        </div>
+        <div class="pi-name">Žuljevi i hiperkeratoze</div><p class="pi-desc">Profesionalno uklanjanje i nega kože stopala</p>
+      </div>
+      <div class="pi rv d1">
+        <div class="pi-icon">
+          <!-- Plantarne bradavice: foot sole with wart spot -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 3c2 0 4 2 4 5v9a4 4 0 01-8 0V8c0-3 2-5 4-5z"/>
+            <circle cx="15" cy="10" r="2" fill="currentColor" opacity="0.35"/>
+            <line x1="15" y1="7" x2="15" y2="6"/>
+            <line x1="17.1" y1="7.9" x2="17.8" y2="7.2"/>
+            <line x1="12.9" y1="7.9" x2="12.2" y2="7.2"/>
+          </svg>
+        </div>
+        <div class="pi-name">Plantarne bradavice</div><p class="pi-desc">Efikasno lečenje bez hirurgije</p>
+      </div>
+      <div class="pi rv d2">
+        <div class="pi-icon">
+          <!-- Deformiteti prstiju: hammer toe — bent middle joint -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 20v-8"/>
+            <path d="M7 12c0-2 1.5-3.5 3.5-3.5"/>
+            <path d="M10.5 8.5C12.5 8.5 14 7 14 5"/>
+            <path d="M14 5c0-1.5 1-2 2-2"/>
+            <path d="M16 3v3"/>
+            <path d="M14 20v-8c0-2 1-3.5 2-3.5"/>
+            <path d="M3 20h18"/>
+          </svg>
+        </div>
+        <div class="pi-name">Deformiteti prstiju</div><p class="pi-desc">Ortotika i konzervativno lečenje</p>
+      </div>
+      <div class="pi rv d3">
+        <div class="pi-icon">
+          <!-- Problemi pete: heel with crack lines -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 18h16"/>
+            <path d="M4 18C4 12 7 6 12 6c3 0 6 2 6 6 0 3-1.5 5-4 6H4z"/>
+            <path d="M9 14l1.5-3 1.5 2 1.5-4"/>
+          </svg>
+        </div>
+        <div class="pi-name">Problemi pete</div><p class="pi-desc">Pukotine, povrede, bolne pete</p>
+      </div>
     </div>
   </div>
 
@@ -963,7 +1061,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
     <div class="certs-hero-left">
       <span class="tag">Naše akreditacije</span>
       <h1>Sertifikati i<br><em>edukacije</em></h1>
-      <p>40 godina neprekidnog usavršavanja — svaki sertifikat je dokaz posvećenosti i profesionalizma koji gradimo od 1984. godine.</p>
+      <p>Decenijama neprekidnog usavršavanja — svaki sertifikat je dokaz posvećenosti i profesionalizma koji gradimo od 1984. godine.</p>
     </div>
     <div class="certs-hero-right">
       <div class="big">40</div>
