@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#3B1F2B"/>
+  <!-- Outer ring accent -->
+  <circle cx="32" cy="32" r="28" fill="none" stroke="#C4748E" stroke-width="1.2" opacity="0.5"/>
+  <!-- Stylized N — two verticals with diagonal stroke, slightly serif-ish -->
+  <g fill="none" stroke="#E8B4C4" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left vertical -->
+    <line x1="18" y1="44" x2="18" y2="20"/>
+    <!-- Diagonal -->
+    <line x1="18" y1="20" x2="46" y2="44"/>
+    <!-- Right vertical -->
+    <line x1="46" y1="44" x2="46" y2="20"/>
+  </g>
+  <!-- Small dot accent at top center -->
+  <circle cx="32" cy="14" r="2" fill="#C4748E" opacity="0.7"/>
+</svg>
