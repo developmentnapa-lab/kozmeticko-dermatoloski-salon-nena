@@ -145,7 +145,7 @@ body.pgl .hbg span{background:var(--navy)}
 
 /* HERO IMAGE */
 .hero-right-img{position:absolute;inset:0;overflow:hidden}
-.hero-right-img img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(.55) saturate(1.1)}
+.hero-right-img img{width:100%;height:100%;object-fit:cover;object-position:left center;filter:brightness(.75) saturate(1.05)}
 
 /* CERT IMAGE */
 .cert-img-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;position:relative}
@@ -205,7 +205,6 @@ footer{background:var(--navy);padding:64px 56px 32px}
 .hero-left-noise{position:absolute;inset:0;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
 .hero-left-line{position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,transparent,var(--sage),transparent)}
 .hero-right{background:var(--sage-d);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
-.hero-right-img{inset:0;background:linear-gradient(145deg,var(--sage-d) 0%,var(--navy) 70%);display:flex;align-items:center;justify-content:center}
 .hero-right-overlay{position:relative;z-index:2;padding:40px 48px;background:linear-gradient(0deg,rgba(26,35,50,.9) 0%,transparent 100%)}
 .hero-tag{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage-l);margin-bottom:28px;animation:fu .7s ease both}
 .hero-tag::before{content:'';width:24px;height:1px;background:var(--sage-l)}
@@ -589,7 +588,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
     </div>
     <div class="hero-right">
       <div class="hero-right-img">
-        <img src="./img4.jpg" alt="Kozmetičko-Dermatološki-Podološki Salon Nena">
+        <img src="./hero.jpg" alt="Kozmetičko-Dermatološki-Podološki Salon Nena">
       </div>
       <div class="hero-right-overlay"></div>
       <div class="hero-right-stats">
@@ -627,7 +626,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
       <div class="podo-left-badge"><strong>Jedini u Zrenjaninu</strong>Salon koji se kontinuirano bavi podologijom i patologijom stopala na medicinskom nivou — od 1984. godine.</div>
     </div>
     <div class="podo-right rv-r">
-      <img src="./hero.jpg" alt="Podološki tretman" style="width:100%;height:200px;object-fit:cover;margin-bottom:24px;display:block">
+      <img src="img4.jpg" alt="Podološki tretman" style="width:100%;height:200px;object-fit:cover;margin-bottom:24px;display:block">
       <h3>Sve što <em>tretiramo</em></h3>
       <ul class="podo-list">
         <li><div class="podo-dot"></div>Urasli nokti — konzervativno</li>
@@ -694,11 +693,11 @@ footer{background:var(--navy);padding:64px 56px 32px}
       <h2>Iz <em>salona Nena</em></h2>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item rv"><img src="img2.jpg" alt="Galerija 1"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
-      <div class="gallery-item rv d1"><img src="img3.jpg" alt="Galerija 2"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
-      <div class="gallery-item rv d2"><img src="img4.jpg" alt="Galerija 3"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
-      <div class="gallery-item rv"><img src="img1.jpg" alt="Galerija 4"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
-      <div class="gallery-item rv d1"><img src="lice.jpg" alt="Galerija 5"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
+      <div class="gallery-item rv"><img src="gallery1.jpg" alt="Galerija 1"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
+      <div class="gallery-item rv d1"><img src="gallery2.jpg" alt="Galerija 2"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
+      <div class="gallery-item rv d2"><img src="gallery3.jpg" alt="Galerija 3"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
+      <div class="gallery-item rv"><img src="gallery4.jpg" alt="Galerija 4"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
+      <div class="gallery-item rv d1"><img src="gallery5.jpg" alt="Galerija 5"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
       <div class="gallery-item rv d2"><img src="gallery6.jpg" alt="Galerija 6"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
       <div class="gallery-item rv"><img src="gallery7.jpg" alt="Galerija 7"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
       <div class="gallery-item rv d1"><img src="gallery8.jpg" alt="Galerija 8"><div class="gallery-overlay"><span>Salon Nena</span></div></div>
@@ -707,8 +706,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
 
   <footer>
     <div class="ft">
-      <div class="fb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" style="margin-bottom:12px;opacity:.85"><circle cx="32" cy="32" r="32" fill="#3B1F2B"/><circle cx="32" cy="32" r="28" fill="none" stroke="#C4748E" stroke-width="1.2" opacity="0.6"/><g fill="none" stroke="#E8B4C4" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="44" x2="18" y2="20"/><line x1="18" y1="20" x2="46" y2="44"/><line x1="46" y1="44" x2="46" y2="20"/></g><circle cx="32" cy="14" r="2.2" fill="#C4748E" opacity="0.8"/></svg>
-      <div class="fb-name">Kozmetičko-Dermatološki-Podološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Specijalizovani podološki salon — jedini u Zrenjaninu.</p></div>
+      <div class="fb"><div class="fb-name">Kozmetičko-Dermatološki-Podološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Specijalizovani podološki salon — jedini u Zrenjaninu.</p></div>
       <div class="fc"><h4>Stranice</h4><ul><li><a href="#" onclick="go('home');return false">Početna</a></li><li><a href="#" onclick="go('about');return false">O nama</a></li><li><a href="#" onclick="go('services');return false">Usluge</a></li><li><a href="#" onclick="go('certs');return false">Sertifikati</a></li><li><a href="#" onclick="go('contact');return false">Kontakt</a></li></ul></div>
       <div class="fc"><h4>Usluge</h4><ul><li><a href="#" onclick="go('services');return false">Podologija</a></li><li><a href="#" onclick="go('services');return false">Urasli nokti</a></li><li><a href="#" onclick="go('services');return false">Tretmani lica</a></li><li><a href="#" onclick="go('services');return false">Konsultacije</a></li></ul></div>
       <div class="fc"><h4>Kontakt</h4><ul><li><a href="tel:+38160564787">+381 60 5647877</a></li><li><a>Kralja Aleksandra Karađorđevića 25</a></li><li><a>Zrenjanin 23000</a></li><li><a>Pon–Sub: 06:30–13:00</a></li></ul></div>
@@ -761,7 +759,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
     <div class="an rv"><div class="anv">40+</div><div class="anl">Godina iskustva</div></div>
     <div class="an rv d1"><div class="anv">3.9★</div><div class="anl">Google ocena</div></div>
     <div class="an rv d2"><div class="anv">1.</div><div class="anl">Podolog u Zrenjaninu</div></div>
-    <div class="an rv d3"><div class="anv">1000+</div><div class="anl">Zadovoljnih pacijenata</div></div>
+    <div class="an rv d3"><div class="anv">∞</div><div class="anl">Zadovoljnih pacijenata</div></div>
   </div>
 
   <section class="about-team">
@@ -795,7 +793,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
 
   <footer>
     <div class="ft">
-      <div class="fb-name">Kozmetičko-Dermatološki-Podološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Specijalizovani podološki salon — jedini u Zrenjaninu.</p></div>
+      <div class="fb"><div class="fb-name">Kozmetičko-Dermatološki-Podološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Specijalizovani podološki salon — jedini u Zrenjaninu.</p></div>
       <div class="fc"><h4>Stranice</h4><ul><li><a href="#" onclick="go('home');return false">Početna</a></li><li><a href="#" onclick="go('services');return false">Usluge</a></li><li><a href="#" onclick="go('certs');return false">Sertifikati</a></li><li><a href="#" onclick="go('contact');return false">Kontakt</a></li></ul></div>
       <div class="fc"><h4>Kontakt</h4><ul><li><a href="tel:+38160564787">+381 60 5647877</a></li><li><a>Kralja Aleksandra Karađorđevića 25</a></li></ul></div>
       <div class="fc"><h4>Radno vreme</h4><ul><li><a>Pon–Sub: 06:30–13:00</a></li><li><a>Ned: Zatvoreno</a></li></ul></div>
@@ -911,7 +909,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
   <div class="other-serv-title"><h2 class="rv" style="font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,38px);font-weight:400;color:var(--navy)">Ostale <em style="font-style:italic;color:var(--sage-d)">usluge</em></h2></div>
   <div class="other-serv rv">
     <div class="os">
-      <div class="os-img-real"><img src="lice.jpg" alt="Tretmani lica"></div>
+      <div class="os-img-real"><img src="img1.jpg" alt="Tretmani lica"></div>
       <h3 class="os-name">Tretmani lica</h3>
       <p class="os-desc">Dermatološki pristup nezi kože lica — od dijagnostike do tretmana problemske kože. Naše osoblje je medicinsko obrazovano i koristi savremene metode.</p>
       <p style="font-size:12px;color:var(--soft);line-height:1.7">Uključuje tretmane za dubinsko čišćenje, anti-age negu, kemijski piling i tretmane za problemsku kožu.</p>
@@ -932,7 +930,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
 
   <footer>
     <div class="ft">
-      <div class="fb-name">Kozmetičko-Dermatološki-Podološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Jedini specijalizovani podolog u Zrenjaninu.</p></div>
+      <div class="fb"><div class="fb-name">Kozmetičko-Dermatološki-Podološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Jedini specijalizovani podolog u Zrenjaninu.</p></div>
       <div class="fc"><h4>Stranice</h4><ul><li><a href="#" onclick="go('home');return false">Početna</a></li><li><a href="#" onclick="go('about');return false">O nama</a></li><li><a href="#" onclick="go('certs');return false">Sertifikati</a></li><li><a href="#" onclick="go('contact');return false">Kontakt</a></li></ul></div>
       <div class="fc"><h4>Kontakt</h4><ul><li><a href="tel:+38160564787">+381 60 5647877</a></li><li><a>Kralja Aleksandra Karađorđevića 25, Zrenjanin</a></li></ul></div>
       <div class="fc"><h4>Radno vreme</h4><ul><li><a>Pon–Sub: 06:30–13:00</a></li><li><a>Ned: Zatvoreno</a></li></ul></div>
@@ -1020,8 +1018,7 @@ footer{background:var(--navy);padding:64px 56px 32px}
 
   <footer>
     <div class="ft">
-      <div class="fb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" style="margin-bottom:12px;opacity:.85"><circle cx="32" cy="32" r="32" fill="#3B1F2B"/><circle cx="32" cy="32" r="28" fill="none" stroke="#C4748E" stroke-width="1.2" opacity="0.6"/><g fill="none" stroke="#E8B4C4" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="44" x2="18" y2="20"/><line x1="18" y1="20" x2="46" y2="44"/><line x1="46" y1="44" x2="46" y2="20"/></g><circle cx="32" cy="14" r="2.2" fill="#C4748E" opacity="0.8"/></svg>
-      <div class="fb-name">Kozmetičko-Dermatološki-Podološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Jedini specijalizovani podolog u Zrenjaninu.</p></div>
+      <div class="fb"><div class="fb-name">Kozmetičko-Dermatološki-Podološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Jedini specijalizovani podolog u Zrenjaninu.</p></div>
       <div class="fc"><h4>Stranice</h4><ul><li><a href="#" onclick="go('home');return false">Početna</a></li><li><a href="#" onclick="go('about');return false">O nama</a></li><li><a href="#" onclick="go('services');return false">Usluge</a></li><li><a href="#" onclick="go('contact');return false">Kontakt</a></li></ul></div>
       <div class="fc"><h4>Kontakt</h4><ul><li><a href="tel:+38160564787">+381 60 5647877</a></li><li><a>Kralja Aleksandra Karađorđevića 25</a></li></ul></div>
       <div class="fc"><h4>Radno vreme</h4><ul><li><a>Pon–Sub: 06:30–13:00</a></li><li><a>Ned: Zatvoreno</a></li></ul></div>
@@ -1058,11 +1055,12 @@ footer{background:var(--navy);padding:64px 56px 32px}
   <div style="position:relative;height:520px">
     <iframe src="https://maps.google.com/maps?q=Kralja+Aleksandra+Karadjordjevica+25,+Zrenjanin+23000,+Serbia&z=16&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width:100%;height:100%;border:0;display:block"></iframe>
     <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,var(--navy) 0%,transparent 100%);height:120px;pointer-events:none"></div>
-    <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2802.4501134031807!2d20.3935897!3d45.3800903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475adbd4bb7daa39%3A0x6017c21272ab1350!2sKOZMETI%C4%8CKO-%20DERMATOLO%C5%A0KI%20SALON%20NENA!5e0!3m2!1sen!2sba!4v1773263115788!5m2!1sen!2sba" target="_blank" style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);background:var(--navy);color:var(--sage-l);font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:10px 22px;text-decoration:none;white-space:nowrap;border:1px solid rgba(255,255,255,.15);transition:background .3s">Otvori u Google Maps →</a>
+    <a href="https://www.google.com/maps/search/Kralja+Aleksandra+Karadjordjevica+25+Zrenjanin" target="_blank" style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);background:var(--navy);color:var(--sage-l);font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:10px 22px;text-decoration:none;white-space:nowrap;border:1px solid rgba(255,255,255,.15);transition:background .3s">Otvori u Google Maps →</a>
   </div>
 
   <footer>
     <div class="ft">
+      <div class="fb"><div class="fb-name">Kozmetičko-Dermatološki-Podološki <em>Salon Nena</em></div><div class="fb-sub">Zrenjanin · od 1984.</div><p>Jedini specijalizovani podolog u Zrenjaninu.</p></div>
       <div class="fc"><h4>Stranice</h4><ul><li><a href="#" onclick="go('home');return false">Početna</a></li><li><a href="#" onclick="go('about');return false">O nama</a></li><li><a href="#" onclick="go('services');return false">Usluge</a></li><li><a href="#" onclick="go('certs');return false">Sertifikati</a></li></ul></div>
       <div class="fc"><h4>Kontakt</h4><ul><li><a href="tel:+38160564787">+381 60 5647877</a></li><li><a>Kralja Aleksandra Karađorđevića 25</a></li><li><a>Zrenjanin 23000, Srbija</a></li></ul></div>
       <div class="fc"><h4>Radno vreme</h4><ul><li><a>Pon–Sub: 06:30–13:00</a></li><li><a>Ned: Zatvoreno</a></li></ul></div>
@@ -1147,6 +1145,3 @@ function subForm(){document.getElementById('cf').style.display='none';document.g
 </script>
 </body>
 </html>
-
-
-
